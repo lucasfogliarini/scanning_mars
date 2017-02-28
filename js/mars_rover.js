@@ -1,6 +1,6 @@
 function MarsRover(x, y, heading){
-  this.x = x;
-  this.y = y;
+  this.x = parseInt(x);
+  this.y = parseInt(y);
 
   this.headings = ['N','E','S','W'];
   this.heading = function(heading){
@@ -35,14 +35,25 @@ function MarsRover(x, y, heading){
     this.heading(rotation);
     return this;
   }
-  this.stack = function(stack){
-    var stack = stack.split('');
-    for (var i = 0; i < stack.length; i++) {
-      var s = stack[i];
-      if(s == 'M')
-        this.move();
-      else
-        this.rotate(s);
+  this.run = function(tread, cb, delay){
+    var tread = tread.split('');
+    var self = this;
+    for (var i = 0; i < tread.length; i++) {
+      var action;
+      let step = tread[i];
+      if(step == 'M'){
+        action = function(){
+          self.move();
+          cb(step);
+        };
+      }
+      else{
+        action = function(){
+          self.rotate(step);
+          cb(step);
+        };
+      }
+      setTimeout(action, delay * i);
     }
     return this;
   }

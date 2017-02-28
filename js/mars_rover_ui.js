@@ -1,20 +1,24 @@
-function MarsRoverUI(roverId, roverStartValue){
-  var roverStart = roverStartValue.split(' ');
-  var start = {
-    x: roverStart[0],
-    y: roverStart[1],
-    heading: roverStart[2]
-  };
-  this.marsRover = new MarsRover(start.x, start.y, start.heading);
-
+function MarsRoverUI(roverId, x, y, heading, plateauY){
   this.roverElement = element(roverId);
-  this.initialPosition = function(){
-    var marginLeft = 71;
-    var marginTop = 257;
+  this.marsRover = new MarsRover(x, y,heading);
+  this.plateauY = plateauY;
+
+  this.applyPosition = function(){
+    var initX = 49;
+    var initY = 49;
     var baseLength = 52;
 
-    this.roverElement.style.left = this.marsRover.x * baseLength + marginLeft + 'px';
-    this.roverElement.style.top = this.marsRover.y * baseLength + marginTop + 'px';
-    this.roverElement.className = "mars-rover " + this.marsRover._heading;
+    var left = this.marsRover.x * baseLength + initX + 'px';
+    var top = Math.abs(this.marsRover.y - this.plateauY - 1) * baseLength + initY + 'px';
+    this.roverElement.style.left = left;
+    this.roverElement.style.top = top;
+    this.roverElement.className = "mars-rover " + this.marsRover._heading.toLowerCase();
+  }
+  this.applyPosition();//initialPosition
+  this.run = function(tread){
+    var self = this;
+    this.marsRover.run(tread, function(){
+      self.applyPosition();
+    }, 1000);
   }
 }

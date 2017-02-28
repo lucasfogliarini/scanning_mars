@@ -10,17 +10,23 @@ body{
   display: inline;
 }
 #dashboard fieldset label{
-  margin: 60px;
+  margin: 50px;
 }
 #ground{
+  position: relative;
   background: url('../images/ground.jpg');
-  border-spacing: 0px;
   height: 1000px;
   width: 1286px;
-  padding: 70px;
+  padding: 100px;
 }
-#ground tr{
+#grid{
+  border-spacing: 0px;
+}
+#grid tr{
   display: inherit;
+}
+.starting{
+  width: 30px;
 }
 .square{
   border: 1px solid white;
@@ -31,7 +37,7 @@ body{
   color: white;
 }
 .mars-rover{
-  position: absolute;
+  position: absolute;;
   width: 50px;
   height: 50px;
 }

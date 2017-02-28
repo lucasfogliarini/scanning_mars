@@ -8,36 +8,42 @@
   <body>
     <form id="dashboard">
       <label>Plateau X</label>
-      <input id="plateau_x" type="number" min="1" max="22" placeholder="22" required="required">
+      <input value="5" id="plateau_x" type="number" min="1" max="22" placeholder="22">
       <br>
       <label>Plateau Y</label>
-      <input id="plateau_y" type="number" min="1" max="22" placeholder="22" required="required">
+      <input value="5" id="plateau_y" type="number" min="1" max="22" placeholder="22">
       <br>
       <fieldset>
         <legend>Mars Rover 1</legend>
-        <label>Start</label>
-        <label>Track</label>
+        <label>Starting</label>
+        <label>Tread</label>
         <br>
-        <input type="text" id="rover1_start" value="" placeholder="1 2 N" required="required">
-        <input type="text" id="rover1" value="" placeholder="LMLMLMLMM" required="required">
+        <input class="starting" type="number" maxlength="1" id="rover1_x" value="1" placeholder="x">
+        <input class="starting" type="number" maxlength="1" id="rover1_y" value="2" placeholder="y">
+        <input class="starting" type="text" maxlength="1" id="rover1_heading" value="N" placeholder="N">
+        <input type="text" id="rover1_tread" value="LMLMLMLMM" placeholder="LMLMLMLMM">
       </fieldset>
       <fieldset>
         <legend>Mars Rover 2</legend>
-        <label>Start</label>
-        <label>Track</label>
+        <label>Starting</label>
+        <label>Tread</label>
         <br>
-        <input type="text" id="rover2_start" value="" placeholder="3 3 E" required="required">
-        <input type="text" id="rover2" value="" placeholder="MMRMMRMRRM" required="required">
+        <input class="starting" type="number" maxlength="1" id="rover2_x" value="3" placeholder="x">
+        <input class="starting" type="number" maxlength="1" id="rover2_y" value="3" placeholder="y">
+        <input class="starting" type="text" maxlength="1" id="rover2_heading" value="E" placeholder="E">
+        <input type="text" id="rover2_tread" value="MMRMMRMRRM" placeholder="MMRMMRMRRM">
       </fieldset>
       <br>
       <br>
       <button id="scan" type="button">Scan!</button>
     </form>
 
-    <table id="ground">
-    </table>
-    <img id="marsRover1" class="mars-rover" src="images/mars_rover.jpg" alt="mars_hover">
-    <img id="marsRover2" style="left: 50px; top: 200px;" class="mars-rover south" src="images/mars_rover_2.jpg" alt="mars_hover_2">
+<div id="ground">
+  <img id="marsRover1" class="mars-rover" src="images/mars_rover.jpg" alt="mars_hover">
+  <img id="marsRover2" class="mars-rover" src="images/mars_rover_2.jpg" alt="mars_hover_2">
+  <table id="grid">
+  </table>
+</div>
 
     <script src="js/mars_rover.js" charset="utf-8"></script>
     <script src="js/mars_rover_ui.js" charset="utf-8"></script>
