@@ -67,5 +67,4 @@ function MarsRover(x, y, heading){
     return steps;
   }
 }
-if(exports)
-  exports.MarsRover = MarsRover;
+exports.MarsRover = MarsRover;
