@@ -31,7 +31,7 @@ describe('MarsRover', function() {
     it('Throw error if "tread" is not "L", "R" or "M"', function() {
       assert.throws(function(){
         var marsRover = new MarsRover.MarsRover(2, 2, 'N');
-        marsRover.run('ELF');
+        marsRover.generateSteps('ELF');
       }, TypeError);
     });
   });

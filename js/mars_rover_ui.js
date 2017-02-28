@@ -17,8 +17,19 @@ function MarsRoverUI(roverId, x, y, heading, plateauY){
   this.applyPosition();//initialPosition
   this.run = function(tread){
     var self = this;
-    this.marsRover.run(tread, function(){
-      self.applyPosition();
-    }, 1000);
+    var steps = this.marsRover.generateSteps(tread);
+    for (let i = 0; i < steps.length; i++) {
+      this.thread().queue(function(){
+        steps[i]();
+        self.applyPosition();
+      });
+    }
+  }
+  this.thread = function(){
+    if(!window.thread){
+      window.thread = new Thread();
+      window.thread.run();
+    }
+    return window.thread;
   }
 }

@@ -42,31 +42,29 @@ function MarsRover(x, y, heading){
     this.heading(rotation);
     return this;
   }
-  this.run = function(tread, cb, delay){
+  this.generateSteps = function(tread){
     var treadError = tread.match(/[^(L|R|M)]/g);
     if(treadError)
       throw new TypeError("'tread' must be 'L', 'R' or M");
 
     var tread = tread.split('');
     var self = this;
+    var steps = [];
     for (var i = 0; i < tread.length; i++) {
       var action;
       let step = tread[i];
       if(step == 'M'){
-        action = function(){
+        steps.push(function(){
           self.move();
-          cb(step);
-        };
+        });
       }
       else{
-        action = function(){
+        steps.push(function(){
           self.rotate(step);
-          cb(step);
-        };
+        });
       }
-      setTimeout(action, delay * i);
     }
-    return this;
+    return steps;
   }
 }
 if(exports)
