@@ -1,0 +1,19 @@
+body{
+  margin: 0px;
+}
+.ground{
+  height: 1000px;
+  background: url('../images/ground.jpg');
+}
+.mars-rover{
+  width: 50px;
+}
+.east{
+  transform: rotate(90deg);
+}
+.south{
+  transform: rotate(180deg);
+}
+.west{
+  transform: rotate(270deg);
+}

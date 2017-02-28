@@ -1,4 +1,4 @@
-function Rover(x, y, heading){
+function MarsRover(x, y, heading){
   this.x = x;
   this.y = y;
 
@@ -47,6 +47,3 @@ function Rover(x, y, heading){
     return this;
   }
 }
-
-var rover1 = new Rover(1, 2, 'N');
-var rover2 = new Rover(3, 3, 'E');
