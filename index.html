@@ -4,11 +4,17 @@
     <meta charset="utf-8">
     <title>Scanning Mars</title>
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/mars_rover.js" charset="utf-8"></script>
   </head>
   <body>
-    <div class="ground">
+    <div id="ground">
       <img class="mars-rover" src="images/mars_rover.jpg" alt="mars_hover">
     </div>
+    <script src="js/mars_rover.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      var ground = document.getElementById('ground');
+      for (var i = 0; i < 1000; i++) {
+        ground.insertAdjacentHTML('afterbegin','<div class="square"></div>');
+      }
+    </script>
   </body>
 </html>
