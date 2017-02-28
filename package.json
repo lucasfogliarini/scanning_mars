@@ -1,0 +1,19 @@
+{
+  "name": "scanning_mars",
+  "version": "1.0.0",
+  "description": "https://github.com/BearchInc/code-challenge/blob/master/challenge2.md#mars-rovers-problem",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucasfogliarini/scanning_mars.git"
+  },
+  "author": "lucasfogliarini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucasfogliarini/scanning_mars/issues"
+  },
+  "homepage": "https://github.com/lucasfogliarini/scanning_mars#readme"
+}

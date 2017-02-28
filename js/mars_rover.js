@@ -1,12 +1,17 @@
 function MarsRover(x, y, heading){
-  this.x = parseInt(x);
-  this.y = parseInt(y);
+  if(typeof x !== "number" || typeof y !== "number")
+    throw new TypeError("x and y must be a number.");
+
+  this.x = x;
+  this.y = y;
 
   this.headings = ['N','E','S','W'];
   this.heading = function(heading){
     if(heading != undefined){
       if(typeof heading == "number")
         heading = this.headings[heading];
+      else if(this.headings.indexOf(heading) == -1)
+        throw new Error("'header' must be one of values: N, E, S, W.");
       this._heading = heading;
     }
     return this.headings.indexOf(this._heading);
@@ -25,6 +30,8 @@ function MarsRover(x, y, heading){
     return this;
   }
   this.rotate = function(side){
+    if(side != 'L' && side != 'R')
+      throw new TypeError("'side' must be 'L'(left) or 'R'(right)");
     var rotation;
     if(side == 'L')
       rotation = this.heading() - 1;
@@ -36,6 +43,10 @@ function MarsRover(x, y, heading){
     return this;
   }
   this.run = function(tread, cb, delay){
+    var treadError = tread.match(/[^(L|R|M)]/g);
+    if(treadError)
+      throw new TypeError("'tread' must be 'L', 'R' or M");
+
     var tread = tread.split('');
     var self = this;
     for (var i = 0; i < tread.length; i++) {
@@ -58,3 +69,5 @@ function MarsRover(x, y, heading){
     return this;
   }
 }
+if(exports)
+  exports.MarsRover = MarsRover;

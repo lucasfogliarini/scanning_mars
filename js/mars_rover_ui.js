@@ -1,6 +1,6 @@
 function MarsRoverUI(roverId, x, y, heading, plateauY){
   this.roverElement = element(roverId);
-  this.marsRover = new MarsRover(x, y,heading);
+  this.marsRover = new MarsRover(parseInt(x), parseInt(y), heading);
   this.plateauY = plateauY;
 
   this.applyPosition = function(){
