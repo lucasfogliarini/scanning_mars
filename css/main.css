@@ -1,10 +1,26 @@
 body{
   margin: 0px;
 }
+#dashboard{
+  padding: 15px;
+  text-align: center;
+}
+#dashboard fieldset{
+  width: 350px;
+  display: inline;
+}
+#dashboard fieldset label{
+  margin: 60px;
+}
 #ground{
-  height: 1000px;
   background: url('../images/ground.jpg');
-  padding: 50px;
+  border-spacing: 0px;
+  height: 1000px;
+  width: 1286px;
+  padding: 70px;
+}
+#ground tr{
+  display: inherit;
 }
 .square{
   border: 1px solid white;
@@ -14,8 +30,6 @@ body{
 }
 .mars-rover{
   position: absolute;
-  left: 0px;
-  top: 0px;
   width: 50px;
   height: 50px;
 }

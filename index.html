@@ -6,15 +6,40 @@
     <link rel="stylesheet" href="css/main.css">
   </head>
   <body>
-    <div id="ground">
-      <img class="mars-rover" src="images/mars_rover.jpg" alt="mars_hover">
-    </div>
+    <form id="dashboard">
+      <label>Plateau X</label>
+      <input id="plateau_x" type="number" min="1" max="22" placeholder="22" required="required">
+      <br>
+      <label>Plateau Y</label>
+      <input id="plateau_y" type="number" min="1" max="22" placeholder="22" required="required">
+      <br>
+      <fieldset>
+        <legend>Mars Rover 1</legend>
+        <label>Start</label>
+        <label>Track</label>
+        <br>
+        <input type="text" id="rover1_start" value="" placeholder="1 2 N" required="required">
+        <input type="text" id="rover1" value="" placeholder="LMLMLMLMM" required="required">
+      </fieldset>
+      <fieldset>
+        <legend>Mars Rover 2</legend>
+        <label>Start</label>
+        <label>Track</label>
+        <br>
+        <input type="text" id="rover2_start" value="" placeholder="3 3 E" required="required">
+        <input type="text" id="rover2" value="" placeholder="MMRMMRMRRM" required="required">
+      </fieldset>
+      <br>
+      <br>
+      <button id="scan" type="button">Scan!</button>
+    </form>
+
+    <table id="ground">
+    </table>
+    <img style="top: 200px;" class="mars-rover south" src="images/mars_rover.jpg" alt="mars_hover">
+    <img style="left: 50px; top: 200px;" class="mars-rover south" src="images/mars_rover_2.jpg" alt="mars_hover_2">
+
     <script src="js/mars_rover.js" charset="utf-8"></script>
-    <script type="text/javascript">
-      var ground = document.getElementById('ground');
-      for (var i = 0; i < 1000; i++) {
-        ground.insertAdjacentHTML('afterbegin','<div class="square"></div>');
-      }
-    </script>
+    <script src="js/main.js" charset="utf-8"></script>
   </body>
 </html>
